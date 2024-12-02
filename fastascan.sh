@@ -15,7 +15,7 @@ if [[ -d $FOLDER ]];
 	else	
 		echo There are $(find $FOLDER -name "*.fa" -or -name "*.fasta"| wc -l) fasta files.
 		echo
-		echo There are $(grep ">" *.fa *.fasta 2> /dev/null | awk '{print $1}' | sort | uniq -c | wc -l) unique IDs in readable files.
+		echo There are $(grep ">" $(find $FOLDER -name "*.fa" -or -name "*.fasta") 2> /dev/null | awk '{print $1}' | sort | uniq -c | wc -l) unique IDs in readable files.
 		echo
 	fi;
 else
